@@ -8,21 +8,22 @@ import VariableProximity from './(component)/VariableProximity';
 
 export default function Home() {
   const containerRef = useRef(null);
-   const router = useRouter();
+  const router = useRouter();
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-black text-white">
+    <div className="relative min-h-screen bg-black text-white overflow-hidden">
+      
       {/* Aurora Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      <div className="absolute inset-0 z-0">
         <Aurora
-          colorStops={['#3A29FF', '#FF94B4', '#FF3232']}
+          colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
           blend={0.5}
           amplitude={1.0}
           speed={0.5}
         />
       </div>
 
-      {/* Content */}
+      {/* Foreground Content */}
       <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center px-4 min-h-screen">
         <div className="max-w-sm rounded-lg shadow-2xl overflow-hidden">
           <Image
@@ -47,11 +48,12 @@ export default function Home() {
           <p className="py-4 max-w-md text-lg">
             Discover powerful quotes that ignite your thoughts. Quotely curates inspiring words from timeless authors and thinkers—one quote at a time.
           </p>
-          <button className="btn btn-primary mt-2" 
-           onClick={()=>router.push("/quotes")}
-          
-          
-          >Generate a Quote</button>
+          <button
+            className="btn btn-primary mt-2"
+            onClick={() => router.push("/quotes")}
+          >
+            Generate a Quote
+          </button>
         </div>
       </div>
     </div>
