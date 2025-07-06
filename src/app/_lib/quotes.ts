@@ -5,6 +5,12 @@ export const quotes = [
     quote: 'Life is what happens when you’re busy making other plans.',
     author: 'John Lennon'
   },
+
+   {
+    topic: 'life',
+    quote: 'Life is what happens when you’re busy making other plans.',
+    author: 'John bakes Lennon'
+  },
   {
     topic: 'life',
     quote: 'The purpose of our lives is to be happy.',

@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useState } from 'react';
 import SpotlightCard from '../(component)/SpotlightCard';
-import { quotes } from '../lib/quotes';
+import { quotes } from '../_lib/quotes';
 
 export default function QuoteGenerator() {
   const [topic, setTopic] = useState('');
@@ -13,7 +13,7 @@ export default function QuoteGenerator() {
   const handleGenerate = () => {
     const filtered = quotes.filter(q =>
       q.topic.toLowerCase().includes(topic.trim().toLowerCase())
-    ).slice(0, 3);
+    ).slice(0 , 3 );
     setMatchedQuotes(filtered);
   };
 
@@ -32,16 +32,20 @@ export default function QuoteGenerator() {
           />
           <Button onClick={handleGenerate}>Generate</Button>
         </div>
+   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    { matchedQuotes.length === 0 && (
+    <p className="text-center opacity-70 col-span-full">No quotes yet.</p>
+  )}
 
-        <div className="grid gap-6">
-          {matchedQuotes.length === 0 && <p className="text-center opacity-70">No quotes yet.</p>}
-          {matchedQuotes.map((q, i) => (
-            <SpotlightCard key={i} className="text-left">
-              <p className="text-lg font-medium italic">“{q.quote}”</p>
-              <p className="text-sm mt-2 text-right text-neutral-400">— {q.author}</p>
-            </SpotlightCard>
-          ))}
-        </div>
+  {matchedQuotes.map((q, i) => (
+    <SpotlightCard key={i} className="text-left">
+      <p className="text-lg font-medium italic">“{q.quote}”</p>
+      <p className="text-sm mt-2 text-right text-neutral-40">— {q.author}</p>
+    </SpotlightCard>
+  ))}
+</div>
+
+       
       </div>
     </div>
   );
